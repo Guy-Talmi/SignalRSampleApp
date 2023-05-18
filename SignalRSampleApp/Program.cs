@@ -15,7 +15,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 	.AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
-//builder.Services.AddSignalR();
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 
@@ -43,6 +43,6 @@ app.MapControllerRoute(
 	pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
-//app.MapHub<UserHub>("/hubs/userCount");
+app.MapHub<UserHub>("/hubs/userCount");
 
 app.Run();
